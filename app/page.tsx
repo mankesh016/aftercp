@@ -1,65 +1,77 @@
-import Image from "next/image";
+import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/data/projects";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="prompt-line">
+          <span className="path">guest@aftercp</span>:~$ <span className="typewriter">whoami --honest</span>
+        </div>
+
+        <h1>
+          Where blackboxes
+          <br /> go to get <em>opened.</em>
+        </h1>
+
+        <p className="lede">
+          I&apos;m Mankesh — Codeforces Candidate Master, ICPC Regionalist twice over, and someone who spent way too
+          long treating <strong>&quot;System Design&quot;</strong> and <strong>&quot;DevOps&quot;</strong> as buzzwords
+          to survive instead of ideas worth actually understanding.
+        </p>
+
+        <div className="badge">
+          <span className="dot"></span> status: under construction
+        </div>
+      </section>
+
+      {/* StorySection */}
+
+      <section className="story">
+        <div className="eyebrow">a sneak peek at how we&apos;ll learn things here</div>
+        <blockquote>
+          <p>&quot;Go learn System Design,&quot; they said.</p>
+          <p>
+            Cool. But what <em>is</em> it? Turns out it&apos;s mostly two things wearing a trench coat — Low-Level
+            Design (how you structure code, OOP, clean architecture) and High-Level Design (how systems talk to each
+            other at scale: load balancers, caching, databases).
           </p>
+          <p>
+            Here&apos;s the fun part: back in 1994, four guys — nicknamed the{" "}
+            <span className="highlight">&quot;Gang of Four&quot;</span> — wrote a book with 23 design principles. Google
+            didn&apos;t exist yet. Facebook didn&apos;t exist yet. And three decades later, senior engineers at those
+            very companies still lean on ideas from that book.
+          </p>
+          <p>
+            That&apos;s not trivia. That&apos;s the point — good engineering ideas are timeless. Once you know{" "}
+            <em>why</em> they exist, you stop memorizing and start understanding.
+          </p>
+        </blockquote>
+        <div className="tail">// full story dropping soon</div>
+      </section>
+
+      {/* ProjectsSection */}
+      <section>
+        <div className="eyebrow">currently shipped</div>
+        <p className="mono section-intro">
+          While the guidance library brews, here&apos;s what&apos;s already live and running.
+        </p>
+
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <ProjectCard key={project.name} {...project} />
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
+
+      {/* ForStrip */}
+      <section className="for-strip">
+        <p>
+          Built for juniors, fellow CPers, and anyone tired of being told <span className="amber">what</span> to learn
+          without ever being told <span className="amber">why</span> it&apos;s worth learning.
+        </p>
+      </section>
     </div>
   );
 }
