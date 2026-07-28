@@ -16,7 +16,7 @@ export const projects: Project[] = [
     name: "Connect4 Engine",
     description: "Minimax with alpha-beta pruning, running off the main thread so the UI never blocks.",
     stack: "next.js · typescript · web workers",
-    url: "https://drop.aftercp.com",
+    url: "https://c4.aftercp.com",
   },
   {
     name: "Aesthetic Focus",
@@ -28,7 +28,6 @@ export const projects: Project[] = [
     name: "Whiteboard App",
     description: "A collaborative whiteboard — draw, sketch, and think out loud in real time.",
     stack: "react · hooks · context · web workers",
-    // TODO: replace with the real live subdomain once it's deployed
-    url: "https://board.aftercp.com",
+    url: "https://draw.aftercp.com",
   },
 ];
